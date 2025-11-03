@@ -1,0 +1,66 @@
+# ============================================================
+# 🌱 Global ignores
+# ============================================================
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+*.swo
+
+# ============================================================
+# 🧩 Backend (Spring Boot)
+# ============================================================
+backend/target/
+backend/.idea/
+backend/.classpath
+backend/.project
+backend/.settings/
+backend/.vscode/
+backend/.apt_generated/
+backend/.factorypath
+
+# Maven specific
+backend/mvnw
+backend/mvnw.cmd
+backend/.mvn/wrapper/maven-wrapper.jar
+
+# Application config (local)
+backend/src/main/resources/application-dev.yml
+
+# IntelliJ / Eclipse build files
+*.iml
+*.ipr
+*.iws
+
+# ============================================================
+# ⚛️ Frontend (React)
+# ============================================================
+frontend/node_modules/
+frontend/build/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# NPM/Yarn logs
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# ============================================================
+# 🐳 Docker / Misc
+# ============================================================
+/docker-compose.override.yml
+*.pid
+*.seed
+*.bak
+
+# ============================================================
+# 🧠 OS / Editor files
+# ============================================================
+.vscode/
+.idea/
+*.bak
+*.tmp
+*.orig
