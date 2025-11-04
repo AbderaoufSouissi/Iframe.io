@@ -20,7 +20,7 @@ const Header = () => {
 
           {/* Right Side - Auth Buttons */}
           <div className="hidden md:flex items-center gap-4 shrink-0">
-            <button className="px-5 py-2 text-sm text-gray-700 font-semibold hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200 cursor-pointer">
+            <button className="px-5 py-2 text-sm text-black font-semibold hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200 cursor-pointer">
               Login
             </button>
             <button className="px-6 py-2.5 text-sm font-semibold text-white bg-blue-800 hover:bg-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform cursor-pointer">
@@ -48,7 +48,7 @@ const Header = () => {
             {isMobileMenuOpen && (
               <div className="absolute right-0 top-full mt-2 w-[50vw] bg-white border border-gray-200 rounded-lg shadow-lg z-50">
                 <div className="p-4 space-y-2">
-                  <button className="w-full text-center px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition-all duration-200">
+                  <button className="w-full text-center px-4 py-2.5 text-sm font-semibold text-black hover:bg-gray-50 rounded-lg transition-all duration-200">
                     Login
                   </button>
                   <button className="w-full px-4 py-2.5 text-sm font-semibold text-white bg-blue-800 hover:bg-blue-900 rounded-lg shadow-md hover:shadow-lg transition-all duration-200">
