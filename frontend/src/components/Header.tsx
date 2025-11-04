@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -9,13 +10,13 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="shrink-0">
-            <a href="/" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <img 
                 src="/logo.png"
                 alt="BGRemover Logo" 
                 className="h-60 w-auto"
               />
-            </a>
+            </Link>
           </div>
 
           {/* Right Side - Auth Buttons */}
