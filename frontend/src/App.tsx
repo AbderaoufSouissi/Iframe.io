@@ -1,15 +1,7 @@
-import Header from './components/Header'
-import HeroSection from './components/HeroSection'
-import Footer from './components/Footer'
+import HomePage from './pages/HomePage'
 
 const App = () => {
-  return (
-    <div>
-      <Header />
-      <HeroSection />
-      <Footer />
-    </div>
-  )
+  return <HomePage />
 }
 
 export default App
