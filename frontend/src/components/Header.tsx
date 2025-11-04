@@ -1,9 +1,20 @@
+import { SignedIn, SignedOut, useClerk, UserButton } from '@clerk/clerk-react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const {openSignIn, openSignUp} = useClerk()
 
+  const openRegister = () => {
+    setIsMobileMenuOpen(false)
+    openSignUp({})
+  }
+
+  const openLogin = () => {
+    setIsMobileMenuOpen(false)
+    openSignIn({})
+  }
   return (
     <header className="bg-white border-b border-gray-200">
       <nav className="px-4 sm:px-6 lg:px-8">
@@ -21,12 +32,17 @@ const Header = () => {
 
           {/* Right Side - Auth Buttons */}
           <div className="hidden md:flex items-center gap-4 shrink-0">
-            <button className="px-5 py-2 text-sm text-black font-semibold hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200 cursor-pointer">
+            <SignedOut>
+              <button onClick={openLogin} className="px-5 py-2 text-sm text-black font-semibold hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200 cursor-pointer">
               Login
             </button>
-            <button className="px-6 py-2.5 text-sm font-semibold text-white bg-blue-800 hover:bg-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform cursor-pointer">
+            <button onClick={openRegister} className="px-6 py-2.5 text-sm font-semibold text-white bg-blue-800 hover:bg-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform cursor-pointer">
               Create Account
             </button>
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
           </div>
 
           {/* Mobile menu button */}  
@@ -49,12 +65,16 @@ const Header = () => {
             {isMobileMenuOpen && (
               <div className="absolute right-0 top-full mt-2 w-[50vw] bg-white border border-gray-200 rounded-lg shadow-lg z-50">
                 <div className="p-4 space-y-2">
-                  <button className="w-full text-center px-4 py-2.5 text-sm font-semibold text-black hover:bg-gray-50 rounded-lg transition-all duration-200">
+                 <SignedOut> <button onClick={openLogin} className="w-full text-center px-4 py-2.5 text-sm font-semibold text-black hover:bg-gray-50 rounded-lg transition-all duration-200">
                     Login
                   </button>
-                  <button className="w-full px-4 py-2.5 text-sm font-semibold text-white bg-blue-800 hover:bg-blue-900 rounded-lg shadow-md hover:shadow-lg transition-all duration-200">
+                  <button onClick={openRegister} className="w-full px-4 py-2.5 text-sm font-semibold text-white bg-blue-800 hover:bg-blue-900 rounded-lg shadow-md hover:shadow-lg transition-all duration-200">
                     Create Account
-                  </button>
+                    </button></SignedOut>
+                  <SignedIn>
+
+                  <UserButton/>
+                  </SignedIn>
                 </div>
               </div>
             )}
