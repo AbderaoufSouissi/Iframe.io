@@ -7,6 +7,8 @@ Thumbs.db
 *.tmp
 *.swp
 *.swo
+*.bak
+*.orig
 
 # ============================================================
 # 🧩 Backend (Spring Boot)
@@ -19,34 +21,49 @@ backend/.settings/
 backend/.vscode/
 backend/.apt_generated/
 backend/.factorypath
+backend/.gradle/
+backend/build/
 
-# Maven specific
+# Maven wrapper files (these can be safely regenerated)
 backend/mvnw
 backend/mvnw.cmd
 backend/.mvn/wrapper/maven-wrapper.jar
 
-# Application config (local)
+# Local environment / config files
 backend/src/main/resources/application-dev.yml
+backend/src/main/resources/application-local.yml
+backend/src/main/resources/application-test.yml
 
-# IntelliJ / Eclipse build files
+# Test reports / temporary files
+backend/test-output/
+backend/surefire-reports/
+
+# IntelliJ / Eclipse / VSCode
 *.iml
 *.ipr
 *.iws
 
 # ============================================================
-# ⚛️ Frontend (React)
+# ⚛️ Frontend (React / Vite)
 # ============================================================
 frontend/node_modules/
+frontend/dist/
 frontend/build/
+frontend/.env
 frontend/.env.local
 frontend/.env.development.local
 frontend/.env.test.local
 frontend/.env.production.local
 
-# NPM/Yarn logs
+# NPM/Yarn/PNPM logs
 frontend/npm-debug.log*
 frontend/yarn-debug.log*
 frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+
+# Lock files (optional to ignore)
+# frontend/package-lock.json
+# frontend/yarn.lock
 
 # ============================================================
 # 🐳 Docker / Misc
@@ -54,7 +71,6 @@ frontend/yarn-error.log*
 /docker-compose.override.yml
 *.pid
 *.seed
-*.bak
 
 # ============================================================
 # 🧠 OS / Editor files
