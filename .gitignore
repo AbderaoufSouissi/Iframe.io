@@ -28,6 +28,7 @@ backend/build/
 backend/mvnw
 backend/mvnw.cmd
 backend/.mvn/wrapper/maven-wrapper.jar
+backend/.env
 
 # Local environment / config files
 backend/src/main/resources/application-dev.yml
