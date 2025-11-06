@@ -3,7 +3,7 @@ spring:
     name: backend
 
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}
+    url: ${MYSQL_URL}
     username: ${MYSQL_USER}
     password: ${MYSQL_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -16,3 +16,11 @@ spring:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.MySQL8Dialect
+
+
+clerk:
+  issuer: ${CLERK_ISSUER}
+  jwks-url: ${CLERK_JWKS_URL}
+
+frontend:
+  url: ${FRONTEND_URL}
