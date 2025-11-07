@@ -5,16 +5,32 @@ import com.ars.backend.entity.UserEntity;
 import com.ars.backend.repository.UserRepository;
 import com.ars.backend.service.UserService;
 import lombok.RequiredArgsConstructor;
+
+
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class ServiceImpl implements UserService {
+public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
 
     @Override
-    public UserDto saveUser(UserDto request) {
+    public UserDto saveUser(UserDto request ) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        try{
+            if(authentication.getName().equals(request.clerkId())){
+                throw new RuntimeException("Unauthorized user");
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+
         if(userRepository.existsByClerkId(request.clerkId())){
             throw new RuntimeException("User with clerkId " + request.clerkId() + " already exists");
         }

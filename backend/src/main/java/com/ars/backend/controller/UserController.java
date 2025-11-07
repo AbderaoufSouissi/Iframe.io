@@ -2,7 +2,6 @@ package com.ars.backend.controller;
 
 import com.ars.backend.dto.UserDto;
 import com.ars.backend.response.Response;
-import com.ars.backend.response.ResponseDto;
 import com.ars.backend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
