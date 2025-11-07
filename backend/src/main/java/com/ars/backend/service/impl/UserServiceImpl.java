@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         try{
-            if(authentication.getName().equals(request.clerkId())){
+            if(!authentication.getName().equals(request.clerkId())){
                 throw new RuntimeException("Unauthorized user");
             }
 
