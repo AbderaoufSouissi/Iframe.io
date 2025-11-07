@@ -1,10 +1,13 @@
-import { SignedIn, SignedOut, useClerk, UserButton } from '@clerk/clerk-react'
+import { SignedIn, SignedOut, useAuth, useClerk, UserButton, useUser } from '@clerk/clerk-react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const {openSignIn, openSignUp} = useClerk()
+  const { openSignIn, openSignUp } = useClerk()
+  const { user } = useUser()
+  
+  const {getToken} = useAuth()
 
   const openRegister = () => {
     setIsMobileMenuOpen(false)
@@ -15,6 +18,15 @@ const Header = () => {
     setIsMobileMenuOpen(false)
     openSignIn({})
   }
+
+  const getData = async () => {
+    const token = await getToken();
+    console.log(token)
+    console.log(user.id)
+  
+  
+}
+
   return (
     <header className="bg-white border-b border-gray-200">
       <nav className="px-4 sm:px-6 lg:px-8">
@@ -41,7 +53,9 @@ const Header = () => {
             </button>
             </SignedOut>
             <SignedIn>
+              <button onClick={getData}>Get the data</button>
               <UserButton />
+
             </SignedIn>
           </div>
 
