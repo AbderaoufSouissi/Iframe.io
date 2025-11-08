@@ -26,6 +26,8 @@ spring:
 clerk:
   issuer: ${CLERK_ISSUER}
   jwks-url: ${CLERK_JWKS_URL}
+  webhook:
+    secret: ${CLERK_WEBHOOK_SECRET}
 
 frontend:
   url: ${FRONTEND_URL}
