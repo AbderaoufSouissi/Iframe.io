@@ -18,29 +18,41 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public UserDto saveUser(UserDto request ) {
+    public UserDto saveUser(UserDto request) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        try{
-            if(!authentication.getName().equals(request.clerkId())){
-                throw new RuntimeException("Unauthorized user");
-            }
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        // Ensure the authenticated user matches the clerkId
+        if (!authentication.getName().equals(request.clerkId())) {
+            throw new RuntimeException("Unauthorized user");
         }
 
+        // Try to find an existing user
+        UserEntity userEntity = userRepository.findByClerkId(request.clerkId())
+                .map(existing -> {
+                    // Update fields of the existing user
+                    existing.setEmail(request.email());
+                    existing.setFirstName(request.firstName());
+                    existing.setLastName(request.lastName());
+                    existing.setPhotoUrl(request.photoUrl());
+                    return existing;
+                })
+                .orElseGet(() -> {
+                    // Create new user if not found
+                    return mapToEntity(request);
+                });
 
-        if(userRepository.existsByClerkId(request.clerkId())){
-            throw new RuntimeException("User with clerkId " + request.clerkId() + " already exists");
-        }
-        UserEntity userEntity = mapToEntity(request);
+        // Save the entity (create or update)
         userRepository.save(userEntity);
-        UserDto userDto = mapToDto(userEntity);
-        return userDto;
+
+        return mapToDto(userEntity);
+    }
 
 
-
+    @Override
+    public UserDto getUserByClerkId(String id) {
+        UserEntity userEntity = userRepository.findByClerkId(id)
+                .orElseThrow(() -> new RuntimeException("User with clerkId " + id + " not found"));
+        return mapToDto(userEntity);
     }
 
     private UserDto mapToDto(UserEntity userEntity) {
