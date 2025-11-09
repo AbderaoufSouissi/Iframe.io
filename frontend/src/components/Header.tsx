@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom'
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { openSignIn, openSignUp } = useClerk()
-  const { user } = useUser()
+  const { user, isLoaded } = useUser();
+
   
   const {getToken} = useAuth()
 
@@ -20,6 +21,10 @@ const Header = () => {
   }
 
   const getData = async () => {
+    if (!isLoaded || !user) {
+    console.log("User not loaded yet");
+    return;
+  }
     const token = await getToken();
     console.log(token)
     console.log(user.id)
@@ -53,7 +58,10 @@ const Header = () => {
             </button>
             </SignedOut>
             <SignedIn>
-              <button onClick={getData}>Get the data</button>
+              <span className="text-sm font-medium text-gray-700 mr-2 hidden sm:inline">
+                Welcome, {user?.firstName}
+              </span>
+
               <UserButton />
 
             </SignedIn>
