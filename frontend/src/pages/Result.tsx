@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import { useNavigate } from "react-router-dom";
+import Header from "../components/Header";
 
 const Result = () => {
   const {image, resultImage} = useContext(AppContext) as any;
@@ -68,8 +69,10 @@ const Result = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 px-4 py-12 font-sans">
-      <div className="max-w-6xl mx-auto">
+    <>
+      <Header />
+      <div className="min-h-screen bg-gray-50 px-4 py-12 font-sans">
+        <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Original */}
           <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-6">
@@ -103,13 +106,13 @@ const Result = () => {
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
                 <button
                   onClick={handleDownload}
-                  className="flex-1 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  className="flex-1 px-4 py-2.5 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
                 >
                   Download Image
                 </button>
                 <button
                   onClick={handleUploadNew}
-                  className="flex-1 px-4 py-2.5 bg-white hover:bg-gray-50 text-gray-700 text-sm font-medium rounded-lg border border-gray-200 shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  className="flex-1 px-4 py-2.5 bg-white hover:bg-gray-50 text-gray-700 text-sm font-medium rounded-lg border border-gray-200 shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
                 >
                   Upload New Image
                 </button>
@@ -117,8 +120,9 @@ const Result = () => {
             )}
           </div>
         </div>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

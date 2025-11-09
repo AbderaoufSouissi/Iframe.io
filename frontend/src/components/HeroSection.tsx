@@ -50,7 +50,7 @@ const HeroSection = () => {
         {/* Title */}
         <h1 className="text-5xl md:text-6xl font-semibold text-gray-900 mb-6 leading-tight">
           Remove Background from Images{' '}
-          <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-blue-800">for FREE</span>
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-600 to-purple-800">for FREE</span>
         </h1>
         
         {/* Description */}
@@ -66,7 +66,7 @@ const HeroSection = () => {
             onDrop={handleDrop}
             className={`border-2 border-dashed rounded-xl p-10 md:p-12 transition-all duration-300 ${
               isDragging
-                ? 'border-blue-600 bg-blue-50 scale-[1.02]'
+                ? 'border-purple-600 bg-purple-50 scale-[1.02]'
                 : 'border-gray-300 bg-gray-50/50'
             }`}
           >
@@ -83,11 +83,11 @@ const HeroSection = () => {
                     file:mr-4 file:py-3 file:px-6 
                     file:rounded-lg file:border-0 
                     file:text-sm file:font-semibold 
-                    file:bg-blue-600 file:text-white 
-                    file:hover:bg-blue-700 file:transition-colors
+                    file:bg-purple-600 file:text-white 
+                    file:hover:bg-purple-700 file:transition-colors
                     file:cursor-pointer file:shadow-sm
                     hover:file:shadow-md
-                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                    focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
                 />
               </label>
 
@@ -96,7 +96,7 @@ const HeroSection = () => {
 
               {/* Drag and drop text */}
               <p className="text-gray-500 text-base">
-                Drop an image or paste <span className="text-blue-600 font-semibold">URL</span> <span className="text-gray-400">(max resolution 5,000 × 5,000 px)</span>
+                Drop an image or paste <span className="text-purple-600 font-semibold">URL</span> <span className="text-gray-400">(max resolution 5,000 × 5,000 px)</span>
               </p>
 
               {/* Supported formats */}
@@ -111,9 +111,9 @@ const HeroSection = () => {
               {/* Terms */}
               <p className="text-xs text-gray-500 pt-4 border-t border-gray-200">
                 By uploading an image or URL, you agree to our{' '}
-                <a href="#" className="text-blue-600 hover:text-blue-700 underline font-medium transition-colors">Terms of Use</a>
+                <a href="#" className="text-purple-600 hover:text-purple-700 underline font-medium transition-colors">Terms of Use</a>
                 {' '}and{' '}
-                <a href="#" className="text-blue-600 hover:text-blue-700 underline font-medium transition-colors">Privacy Policy</a>.
+                <a href="#" className="text-purple-600 hover:text-purple-700 underline font-medium transition-colors">Privacy Policy</a>.
               </p>
             </div>
           </div>

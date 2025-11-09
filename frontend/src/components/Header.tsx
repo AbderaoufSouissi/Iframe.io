@@ -42,7 +42,7 @@ const Header = () => {
               <img 
                 src="/logo.png"
                 alt="BGRemover Logo" 
-                className="h-60 w-auto"
+                className="h-40 w-auto"
               />
             </Link>
           </div>
@@ -53,7 +53,7 @@ const Header = () => {
               <button onClick={openLogin} className="px-5 py-2 text-sm text-black font-semibold hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200 cursor-pointer">
               Login
             </button>
-            <button onClick={openRegister} className="px-6 py-2.5 text-sm font-semibold text-white bg-blue-800 hover:bg-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform cursor-pointer">
+            <button onClick={openRegister} className="px-6 py-2.5 text-sm font-semibold text-white bg-purple-600 hover:bg-purple-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform cursor-pointer">
               Create Account
             </button>
             </SignedOut>
@@ -90,7 +90,7 @@ const Header = () => {
                  <SignedOut> <button onClick={openLogin} className="w-full text-center px-4 py-2.5 text-sm font-semibold text-black hover:bg-gray-50 rounded-lg transition-all duration-200">
                     Login
                   </button>
-                  <button onClick={openRegister} className="w-full px-4 py-2.5 text-sm font-semibold text-white bg-blue-800 hover:bg-blue-900 rounded-lg shadow-md hover:shadow-lg transition-all duration-200">
+                  <button onClick={openRegister} className="w-full px-4 py-2.5 text-sm font-semibold text-white bg-purple-600 hover:bg-purple-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-200">
                     Create Account
                     </button></SignedOut>
                   <SignedIn>
