@@ -1,6 +1,6 @@
-# 🪄 IFrame.io
+# 🪄 Iframe.io
 
-> IFrame.io is a **Full Stack web application** that removes image backgrounds automatically using the ClipDrop API.  
+> Iframe.io is a **Full Stack web application** that removes image backgrounds automatically using the ClipDrop API.  
 > Built with **React** (frontend) and **Spring Boot** (backend) in a full-stack, containerized architecture.
 
 ---
