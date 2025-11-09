@@ -40,6 +40,12 @@ public class UserServiceImpl implements UserService {
         return mapToDto(userEntity);
     }
 
+    @Override
+    public void deleteUserByClerkId(String id) {
+        UserEntity userToDelete = userRepository.findByClerkId(id)
+                .orElseThrow(() -> new RuntimeException("User with clerkId " + id + " not found"));
+        userRepository.delete(userToDelete);
+    }
 
 
     @Override

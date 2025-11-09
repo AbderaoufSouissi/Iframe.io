@@ -12,7 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@Slf4j
+
 @RestController
 @RequestMapping("/api/webhooks")
 @RequiredArgsConstructor
@@ -43,18 +43,17 @@ public class ClerkWebhookController {
             String eventType = rootNode.path("type").asText();
             JsonNode data = rootNode.path("data");
 
-            log.info("📩 Clerk webhook received: {}", eventType);
+
 
             switch (eventType) {
                 case "user.created" -> handleUserCreated(data);
                 case "user.updated" -> handleUserUpdated(data);
                 case "user.deleted" -> handleUserDeleted(data);
-                default -> log.warn("⚠️ Unhandled Clerk event type: {}", eventType);
             }
 
             return ResponseEntity.ok(new Response(true, HttpStatus.OK, "Webhook processed successfully"));
         } catch (Exception e) {
-            log.error("❌ Error processing Clerk webhook: {}", e.getMessage(), e);
+
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new Response(false, HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage()));
         }
@@ -66,19 +65,18 @@ public class ClerkWebhookController {
     private void handleUserCreated(JsonNode data) {
         UserDto newUser = extractUserFromClerkData(data);
         userService.saveUser(newUser, true); // fromWebhook = true (bypass auth)
-        log.info("✅ User created/updated via webhook: {}", newUser.clerkId());
     }
 
     private void handleUserUpdated(JsonNode data) {
         UserDto updatedUser = extractUserFromClerkData(data);
-        userService.saveUser(updatedUser, true); // bypass auth
-        log.info("🔄 User updated via webhook: {}", updatedUser.clerkId());
+        userService.saveUser(updatedUser, true);
+
     }
 
     private void handleUserDeleted(JsonNode data) {
         String clerkId = data.path("id").asText();
-        log.info("🗑️ User deleted via webhook: {}", clerkId);
-        // Optional: implement user deletion if needed
+        userService.deleteUserByClerkId(clerkId);
+
     }
 
     // --------------------------------------------------------------------
