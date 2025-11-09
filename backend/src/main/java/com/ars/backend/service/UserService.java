@@ -4,7 +4,7 @@ import com.ars.backend.dto.UserDto;
 
 
 public interface UserService {
-    UserDto saveUser(UserDto userDto);
+    UserDto saveUser(UserDto request, boolean fromWebhook);
 
     UserDto getUserByClerkId(String id);
 }

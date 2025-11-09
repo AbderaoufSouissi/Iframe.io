@@ -18,34 +18,28 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public UserDto saveUser(UserDto request) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-        // Ensure the authenticated user matches the clerkId
-        if (!authentication.getName().equals(request.clerkId())) {
-            throw new RuntimeException("Unauthorized user");
+    public UserDto saveUser(UserDto request, boolean fromWebhook) {
+        if (!fromWebhook) {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            if (authentication == null || !authentication.getName().equals(request.clerkId())) {
+                throw new RuntimeException("Unauthorized user");
+            }
         }
 
-        // Try to find an existing user
         UserEntity userEntity = userRepository.findByClerkId(request.clerkId())
                 .map(existing -> {
-                    // Update fields of the existing user
                     existing.setEmail(request.email());
                     existing.setFirstName(request.firstName());
                     existing.setLastName(request.lastName());
                     existing.setPhotoUrl(request.photoUrl());
                     return existing;
                 })
-                .orElseGet(() -> {
-                    // Create new user if not found
-                    return mapToEntity(request);
-                });
+                .orElseGet(() -> mapToEntity(request));
 
-        // Save the entity (create or update)
         userRepository.save(userEntity);
-
         return mapToDto(userEntity);
     }
+
 
 
     @Override
