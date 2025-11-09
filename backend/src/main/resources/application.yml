@@ -29,5 +29,9 @@ clerk:
   webhook:
     secret: ${CLERK_WEBHOOK_SECRET}
 
+clipdrop:
+    base-url: ${CLIPDROP_BASE_URL}
+    api-key: ${CLIPDROP_API_KEY}
+
 frontend:
   url: ${FRONTEND_URL}
