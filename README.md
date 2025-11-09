@@ -1,17 +1,18 @@
-# 🪄 Image Background Remover
+# 🪄 IFrame.io
 
-> **AI-powered web application** that automatically removes image backgrounds using deep learning–based segmentation.  
-> Built with **React** (frontend) and **Spring Boot** (backend) for a full-stack, containerized architecture.
+> IFrame.io is a **Full Stack web application** that removes image backgrounds automatically using the ClipDrop API.  
+> Built with **React** (frontend) and **Spring Boot** (backend) in a full-stack, containerized architecture.
 
 ---
 
 ## 🚀 Features
 
-- 🧠 **AI Background Removal** – Automatically removes the background from images.
-- ⚛️ **Modern Frontend** – Built with **React**, offering a smooth and intuitive user interface.
-- ☕ **Robust Backend** – Powered by **Spring Boot**, handling image processing and API management.
-- 🐳 **Dockerized Setup** – Easily run both services via Docker Compose.
-- 📤 **Upload / Preview / Download** – Drag-and-drop image upload with live preview and processed image download.
+- 🧠 **Automatic Background Removal** – Remove image backgrounds in seconds using ClipDrop API.  
+- ⚛️ **Modern Frontend** – Responsive React interface with live image preview and download.  
+- ☕ **Secure Backend** – Spring Boot backend handling API requests, authentication, and image processing.  
+- 🔐 **Authentication** – User login with **Clerk** and **JWT** for secure access.  
+- 🗄️ **Metadata Storage** – Images and related data stored in **MySQL**.  
+- 🐳 **Dockerized Setup** – Easily run frontend, backend, and database via Docker Compose.  
 
 ---
 
@@ -33,32 +34,39 @@
 
 ---
 
+
+---
+
 ## ⚙️ Tech Stack
 
 **Frontend:**  
 - React  
+- TypeScript  
+- Tailwind CSS  
 - Axios  
-- TailwindCSS (or other CSS framework of your choice)  
 
 **Backend:**  
 - Spring Boot  
 - Spring Web  
-- Spring DevTools  
-- (Optional) AI/ML model integration for segmentation  
+- Spring Security  
+- Clerk (Authentication)  
+- ClipDrop API integration  
+- MySQL  
 
 **DevOps:**  
 - Docker / Docker Compose  
-- Maven  
-- Git & GitHub  
+- Maven / Node.js & npm  
 
 ---
 
 ## 🧠 How It Works
 
-    1. User uploads an image via the React interface.  
-    2. The frontend sends the image to the Spring Boot API.  
-    3. The backend processes the image using an AI segmentation model or image library.  
-    4. The processed image (without background) is returned and displayed for preview/download.
+1. User logs in via Clerk authentication.  
+2. User uploads an image through the React interface.  
+3. Frontend sends the image to the Spring Boot API.  
+4. Backend calls the **ClipDrop API** to remove the image background.  
+5. Processed image is returned and displayed in the frontend for preview/download.  
+6. Metadata and image info are stored in **MySQL**.  
 
 ---
 
@@ -66,8 +74,25 @@
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/AbderaoufSouissi/Image-Background-Remover.git
+git clone https://github.com/AbderaoufSouissi/Iframe.io.git
 cd Image-Background-Remover
+
+
+## 🧪 Running Locally
+
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/AbderaoufSouissi/Iframe.io.git
+cd Image-Background-Remover
+```
+
+
+## 🧪 Running Locally
+
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/AbderaoufSouissi/Iframe.io.git
+cd bg-remover
 ```
 2️⃣ Run the backend
 ```bash
