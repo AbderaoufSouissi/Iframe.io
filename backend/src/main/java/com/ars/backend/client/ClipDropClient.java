@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 public interface ClipDropClient {
 
 
-    @PostMapping(value = "/remove-background", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(value = "/remove-background/v1", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     byte[] removeBackground(@RequestPart("image_file") MultipartFile file,
                             @RequestHeader("x-api-key") String apiKey);
 
