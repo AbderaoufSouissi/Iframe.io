@@ -25,18 +25,18 @@ const UserSyncHandler = () => {
                     lastName: user.lastName || "",
                 };
 
-                await axios.post(`${backendUrl}/users`, UserData, {
+                const response = await axios.post(`${backendUrl}/users`, UserData, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
                 });
 
-                // if (response.data.success === true) {
-                //     toast.success("Account created successfully");
+                if (response.data.success === true) {
+                    toast.success("Welcome back " + (user.firstName));
                     
-                // } else {
-                //     toast.error("Unable to create account");
-                // }
+                } else {
+                    toast.error("Unable to create account");
+                }
                 setSynced(true);
             } catch (error) {
                 console.error("Error syncing user:", error);

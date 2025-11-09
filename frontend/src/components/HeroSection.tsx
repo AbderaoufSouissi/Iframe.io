@@ -85,7 +85,7 @@ const HeroSection = () => {
         // Upload Interface
         <div className="max-w-3xl mx-auto">
           <div className="text-center space-y-4 sm:space-y-6 mb-8 sm:mb-12">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-5xl font-bold text-black leading-tight">
               Remove the background from your images{' '}
               <span className="bg-linear-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
                 for FREE
@@ -166,13 +166,13 @@ const HeroSection = () => {
         <div className="max-w-7xl mx-auto">
           {/* Keep Homepage Text */}
           <div className="text-center space-y-4 sm:space-y-6 mb-8 sm:mb-12">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+            <h1 className="text-5xl font-bold text-black leading-tight">
               Remove the background from your images{' '}
               <span className="bg-linear-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
                 for FREE
               </span>
             </h1>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-black max-w-2xl mx-auto">
               Upload your image and let our AI technology remove the background instantly. 
               No credit card required.
             </p>
