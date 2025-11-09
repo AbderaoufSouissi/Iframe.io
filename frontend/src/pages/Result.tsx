@@ -96,6 +96,12 @@ const Result = () => {
                 // keep logic: display result image from context
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={resultImage ? resultImage : ''} alt="Background removed" className="object-contain w-full h-full bg-white" />
+              ) : image ? (
+                // Show spinner while processing
+                <div className="flex flex-col items-center justify-center gap-4">
+                  <div className="animate-spin rounded-full h-12 w-12 border-4 border-purple-200 border-t-purple-600"></div>
+                  <p className="text-sm text-gray-600">Processing image...</p>
+                </div>
               ) : (
                 <div className="text-sm text-gray-400">No result yet</div>
               )}

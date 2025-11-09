@@ -2,7 +2,6 @@ import { useAuth, useClerk, useUser } from "@clerk/clerk-react";
 import axios from "axios";
 import { createContext, useState } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 
 export const AppContext = createContext({});
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
@@ -16,7 +15,6 @@ const AppContextProvider = (props) => {
     const [resultImage, setResultImage] = useState<string | boolean>(false);
     const { isSignedIn } = useUser();
     const{openSignIn} = useClerk();
-    const navigate = useNavigate()
 
 
    const removeBg = async (selectedImage) => {
@@ -26,8 +24,6 @@ const AppContextProvider = (props) => {
          }
          setImage(selectedImage);
          setResultImage(false);
-         //navigate to the result Image
-         navigate('/result')
 
          const token = await getToken();
          const formData = new FormData();
@@ -43,6 +39,8 @@ const AppContextProvider = (props) => {
      } catch (error) {
          console.error("Error removing background:", error);
          toast.error("Failed to remove background. Please try again.");
+         setImage(false);
+         setResultImage(false);
      }
    };
 
